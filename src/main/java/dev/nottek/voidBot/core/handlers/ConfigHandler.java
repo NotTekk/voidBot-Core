@@ -21,7 +21,7 @@ public class ConfigHandler {
                     .load());
         }
 
-        if (null != res) dotenvFiles = res.toArray(new Dotenv[res.size()]);
+        if (null != res) dotenvFiles = res.toArray(Dotenv[]::new);
     }
 
     public static String get(String key) {
