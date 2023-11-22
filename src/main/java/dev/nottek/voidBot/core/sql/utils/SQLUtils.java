@@ -178,24 +178,4 @@ public class SQLUtils {
         }
     }
 
-    public static long getLoggerChannel(long guildId) {
-        try (final Connection connection = SQLConnection.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT channelId FROM guild_settings WHERE guild_id = ?")) {
-
-            preparedStatement.setString(1, String.valueOf(guildId));
-
-            try (final ResultSet rs = preparedStatement.executeQuery()) {
-                if (rs.next()) {
-                    return rs.getLong("channelId");
-                }
-            }
-
-            preparedStatement.close();
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return 0;
-    }
-
 }
