@@ -18,7 +18,10 @@ public class SQLCreateStatement {
                     "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                     "guild_id VARCHAR(20) NOT NULL," +
                     "prefix VARCHAR(255) NOT NULL DEFAULT '" + defaultPrefix + "'," +
-                    "moderated VARCHAR(10) NOT NULL" + ");");
+                    "logger INTEGER NOT NULL DEFAULT 0," +
+                    "loggerChannel VARCHAR(255)," +
+                    "moderate VARCHAR(10) NOT NULL," +
+                    "moderatorChannel VARCHAR(255)" + ");");
 
             statement.close();
 
